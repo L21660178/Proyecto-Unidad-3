@@ -1,0 +1,55 @@
+<!-- En esta parte del codigo se declara que es un archivo HTML5, se define el idioma del contenido
+ se establece el titulo de la pagina, se enlaza el archivo CSS externo llamado styles.css,
+ se enlazan a dos links, los cuales son para mandar importar fuentes encuestion de la letra -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIDAD 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Shadows+Into+Light&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap">
+    <link rel="icon" href="imagen6.jpg" type="image/x-icon"> 
+</head>
+<body>
+
+    <!-- Contiene elementos de navegacion, contiene enlaces y la estructura de la barra de navegacion,
+     contiene el enlace que representa el logotipo de la pagina, Menú de navegación -->
+    <nav class="navbar">
+        <a href="#" class="logo">ESSENCE</a>
+        <div class="menu-toggle" onclick="toggleMenu()">           <!-- Un contenedor que actúa como botón para alternar la visibilidad del menú. -->
+            <div></div>                        <!-- Tres divs vacíos que forman un icono de "hamburguesa" -->               
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu">                     <!-- Contenedor para los enlaces del menú de navegación -->
+            <a href="#" onclick="showContent('inicio')">Inicio</a>
+            <a href="#" onclick="showContent('servicios')">Servicios</a>
+            <a href="#" onclick="showContent('sobre-mi')">Sobre mí</a>
+            <a href="#" onclick="showContent('contacto')">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- contenedor principal que agrupa el contenido de bienvenida, contiene el titulo principal, 
+     un parrafo para complementar el mensaje, contiene la imagen, se especifica la ruta de la imagen-->
+    <div class="content" id="content">
+        <h1 class="welcome-message">Bienvenido a mi página</h1>
+        <p class="welcome-text">Diseñemos juntas.</p>
+        <div class="welcome-image-container">
+            <img class="welcome-image" src="imagen5.jpg" alt="Imagen de Bienvenida">
+        </div>
+    </div>
+    
+    <!-- contenedor principal del modal, se utiliza para aplicar estilos especificos al modal,
+     visibilidad y su posicion en la pantalla, de determina la clase con la cual permite aplicar estilos  -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="modal-frame" src="" frameborder="0"></iframe>       <!--iframe se puede establecer dimanicamnete dependiendo de la interaccion del usuario -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>      <!-- Esta etiqueta <script> se utiliza para incluir un archivo JavaScript externo llamado "script.js". -->
+</body>
+</html>

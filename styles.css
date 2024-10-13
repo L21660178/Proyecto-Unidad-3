@@ -1,0 +1,398 @@
+/* Establecer un estilo global para todos los elementos */
+* {
+    margin: 0;  /* Eliminar los márgenes predeterminados de todos los elementos */
+    padding: 0;  /* Eliminar el padding predeterminado de todos los elementos */
+    box-sizing: border-box;  /* Incluir el padding y el borde en las dimensiones de ancho y alto */
+}
+/* Estilos para el elemento body del documento */
+body {
+    font-family: 'Arial', sans-serif;
+    animation: gradientAnimation 10s ease infinite; /* animacion de fondo con duracion de 10 segundos, con trancisiones y repeticiones*/
+    background: linear-gradient(135deg, #ff84bb, #b35584bd);
+    height: 100vh;
+    color: #333;
+    overflow-y: scroll;  /* Permitir que el contenido se desplace verticalmente si excede la altura de la ventana */
+}
+
+/* Definición de la animación llamada "gradientAnimation" */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(135deg, #ff84bb, #ff4564de);
+    }
+    25% {
+        background: linear-gradient(135deg, #ff747fde, #ff84bb);
+    }
+    50% {
+        background: linear-gradient(135deg, #ff69b4, #f0e68c);
+    }
+    75% {
+        background: linear-gradient(135deg, #f0e68c, #ff84bb);
+    }
+    100% {
+        background: linear-gradient(135deg, #ff84bb, hsla(0, 100%, 64%, 0.836));
+    }
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: rgba(255, 182, 193, 0.9);
+    border-bottom: 2px solid #ff69b4; /* Borde inferior agregado */
+    position: fixed;  /* Fija la barra de navegación en la parte superior de la ventana */
+    width: 100%;  /* La barra ocupa todo el ancho de la ventana */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los enlaces dentro de la barra de navegación */
+.navbar a {
+    color: #333;
+    text-decoration: none;  /* Elimina el subrayado predeterminado de los enlaces */
+    padding: 15px 20px;
+    display: block;   /* Hace que el enlace ocupe todo el espacio del contenedor, facilitando la interacción */
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    background-color: #e639e686; /* Color morado */
+    color: #fff; /* Cambiar el color del texto a blanco para mayor contraste */
+}
+
+/* Estilos para el contenedor del menú */
+.menu {
+    display: flex;   /* Utiliza flexbox para alinear los elementos del menú en una fila */
+}
+
+
+/* Estilos para los enlaces dentro del menú */
+.menu a {
+    padding: 10px 15px;
+}
+
+/* Estilos para el botón de alternar menú (hamburguesa) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;  /* Cambia el cursor a puntero al pasar sobre el botón */
+}
+
+/* Estilos para las líneas que componen el botón de alternar menú */
+.menu-toggle div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+}
+
+/* Estilos específicos para pantallas con un ancho máximo de 768px (dispositivos móviles) */
+@media (max-width: 768px) {
+     /* Estilos para el contenedor del menú en dispositivos móviles */
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #74faff;
+        position: absolute;
+        top: 50px;
+        left: 0;
+    }
+
+/* Estilos para mostrar el menú cuando tiene la clase 'show' */
+    .menu.show {
+        display: flex;
+    }
+/* Estilos para el botón de alternar menú en dispositivos móviles */
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Estilo del contenedor principal de contenido */
+.content {
+    margin-top: 70px; /*margen superior para separar el contenido del navbar*/
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo de títulos (h1, h2, h3 y h2 dentro de .servicio) con fuente personalizada */
+h1, h2, h3, .servicio h2 {
+    font-family: 'Shadows Into Light', cursive; /* Aplica la fuente a los títulos */
+    color: #00e4d8; /* Opcional: Color del texto */
+}
+
+/* Galería con Flexbox */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Estilo de los elementos de la galería */
+.gallery-item {
+    background-color: #fff;
+    border: 6px solid #00ffff; 
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+    color: #f50057;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición más suave */
+    flex: 1 1 200px;   /* Permite que los elementos se ajusten y ocupen espacio flexible en el contenedor */
+    max-width: 220px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.801), 0 0 20px rgba(255, 182, 193, 0.5);
+    margin: 10px; /* Margen para dar espacio alrededor */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+    border-radius: 12px 12px 0 0; /* Esquinas redondeadas en la parte superior */
+}
+
+/* Estilo para el texto dentro de los elementos de la galería */
+.gallery-item span {
+    display: block;
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+/* Estilo para el efecto de hover en los elementos de la galería */
+.gallery-item:hover {
+    transform: translateY(-5px);  /* Mueve el elemento 5 píxeles hacia arriba al pasar el mouse */
+    box-shadow: 0 0 80px rgba(255, 0, 200, 0.932), 0 0 40px rgba(255, 182, 193, 0.7); /* Efecto de luz más fuerte en hover */
+    background-color: #f844f8; 
+    color: #fff; 
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%; /*ancho de la ventana*/
+    height: 100%; /*altura*/
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 20px; /* Agregar espacio interno */
+    width: 90%;
+    max-width: 1100px;
+    background-color: white;
+    border-radius: 12px; /* Bordes redondeados */
+    border: 5px solid rgba(219, 14, 117, 0.7); /* Borde rosa */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 80vh;
+}
+
+.close {
+    position: absolute;  /* Posición absoluta para que se coloque en relación con el contenedor padre */
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;    /* Cambia el cursor a un puntero cuando se pasa sobre el botón, indicando que es interactivo */
+}
+
+.close:hover,
+.close:focus {
+    color: black;  /* Cambia el color del botón de cerrar a negro al pasar el mouse o al recibir foco */
+}
+
+.servicios {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;   /* Agrega un relleno de 20px alrededor del contenedor de servicios */
+}
+
+.servicio {
+    background-color: #fff;
+    border: 6px solid #00ffff;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+    color: #f50057;
+    transition: transform 0.2s, box-shadow 0.3s;
+    flex: 1 1 200px;
+    max-width: 220px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.836);
+}
+
+.servicio img {
+    width: 100%;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+    border-radius: 12px 12px 0 0; /* Esquinas redondeadas en la parte superior */
+}
+
+.servicio h2 {
+    font-size: 18px; /* Tamaño de fuente para el encabezado h2 dentro de un contenedor de servicio */
+}
+
+.servicio p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Efecto de hover */
+.servicio:hover {
+    transform: translateY(-5px);   /* Desplaza el elemento hacia arriba 5 píxeles al pasar el cursor */
+    box-shadow: 0 0 50px rgba(255, 0, 200, 0.932), 0 0 40px rgba(255, 182, 193, 0.7);
+    background-color: #ec68ec;  /* Cambia el color de fondo a morado al hacer hover */
+    color: #fff; /* Cambiar el color del texto a blanco */
+}
+
+.sobre-mi {
+    display: flex;
+    justify-content: space-around; /* Espaciado entre los rectángulos */
+    margin: 20px 0; /* Espaciado superior e inferior */
+}
+
+.foto, .info {
+    background-color: #ffe6fb; 
+    border: 6px solid #00ffff; /* Borde */
+    border-radius: 12px; /* Bordes redondeados */
+    padding: 10px;
+    text-align: center; /* Centrar texto */
+    width: 45%; /* Ancho del rectángulo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.863), 0 0 20px rgba(255, 105, 180, 0.7); /* Sombra y luz rosa */
+    line-height: 1.6; /* Interlineado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave al cambiar de tamaño y sombra */
+}
+
+/* Efecto de aumento al pasar el ratón */
+.foto:hover, .info:hover {
+    transform: scale(1.12); /* Aumenta el tamaño al 112% */
+    box-shadow: 0 0 50px rgba(255, 105, 180, 1), 0 0 30px rgba(255, 105, 180, 0.5); /* Aumenta la luz rosa al pasar el ratón */
+}
+
+.foto img {
+    max-width: 100%; /* Asegúrate de que la imagen no exceda el ancho del contenedor */
+    border-radius: 12px 12px 0 0; /* Bordes redondeados en la parte superior de la imagen */
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrar verticalmente el contenido */
+    line-height: 1.6; /* Interlineado */
+}
+
+
+
+.contacto {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.contacto-recuadro {
+    background-color: #ffffffde;
+    border: 6px solid #0bf7ff;
+    border-radius: 8px;
+    width: 30%; /* Ajusta el ancho según sea necesario */
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 105, 180, 0.7); /* Sombra normal y luz rosa */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+}
+
+.contacto-recuadro:hover {
+    transform: scale(1); /* Aumentar tamaño al pasar el ratón */
+    box-shadow: 0 0 20px rgba(255, 105, 180, 1), 0 0 30px rgba(255, 105, 180, 0.5); /* Luz rosa más intensa en hover */
+}
+
+.contacto-recuadro img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.contacto-recuadro h2 {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+.hoverable {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 105, 180, 0.7); /* Luz rosa inicial */
+}
+
+.hoverable:hover {
+    transform: scale(1.3); /* Aumentar tamaño al pasar el ratón */
+    box-shadow: 0 0 20px rgba(255, 105, 180, 1), 0 0 30px rgba(255, 105, 180, 0.5); /* Luz rosa más intensa al hacer hover */
+}
+
+.hover-box {
+    display: none; /* Ocultamos el box de información extra por defecto */
+    position: absolute; /* Posicionamos relativo al recuadro */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgb(236, 3, 139);
+    z-index: 1;
+}
+
+.hoverable:hover .hover-box {
+    display: block; /* Mostramos el box de información extra al pasar el ratón */
+}
+/* Centrar el mensaje de bienvenida y aumentar tamaño de texto */
+.welcome-message {
+    font-family: 'Shadows Into Light', cursive;
+    color: #00e4d8;
+    font-size: 3rem; /* Ajusta el tamaño del título */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.welcome-text {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto */
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de imagen */
+.welcome-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo de imagen con efecto de acercamiento */
+.welcome-image {
+    max-width: 20%;
+    height: auto;
+    border-radius: 15px;
+    border: 6px solid #00e4d8; 
+    transition: transform 0.5s ease;
+}
+
+.welcome-image:hover {
+    transform: scale(1.1); /* Efecto de zoom */
+    box-shadow: 0 0 60px rgb(105, 208, 255); 
+}
